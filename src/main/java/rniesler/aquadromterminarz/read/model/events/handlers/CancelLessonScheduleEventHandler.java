@@ -1,12 +1,12 @@
-package rniesler.aquadromterminarz.model.read.events.handlers;
+package rniesler.aquadromterminarz.read.model.events.handlers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import rniesler.aquadromterminarz.eventstorage.handlers.Event;
 import rniesler.aquadromterminarz.eventstorage.handlers.EventHandler;
-import rniesler.aquadromterminarz.model.read.LessonScheduleReadModelRepository;
-import rniesler.aquadromterminarz.model.read.events.CancelLessonScheduleEvent;
+import rniesler.aquadromterminarz.read.model.LessonScheduleReadModelRepository;
+import rniesler.aquadromterminarz.read.model.events.CancelLessonScheduleEvent;
 
 @Slf4j
 @Component

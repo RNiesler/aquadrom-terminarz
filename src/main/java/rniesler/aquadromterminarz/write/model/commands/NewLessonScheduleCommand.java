@@ -1,10 +1,10 @@
-package rniesler.aquadromterminarz.model.write.commands;
+package rniesler.aquadromterminarz.write.model.commands;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import rniesler.aquadromterminarz.model.write.LessonSchedule;
+import rniesler.aquadromterminarz.write.model.LessonSchedule;
 
 @Data
 @Builder

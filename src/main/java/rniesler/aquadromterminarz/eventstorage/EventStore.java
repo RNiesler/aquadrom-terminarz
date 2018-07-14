@@ -39,7 +39,7 @@ public class EventStore { //TODO make reactive
                     eventLog.setUser("admin"); //TODO authentication
                     eventLog.setEventDate(LocalDateTime.now());
                     return eventLogRepository.save(eventLog);
-                }) //handle event on the read side
+                }) //handle event on the model side
                 .flatMap(savedEventLog -> eventLogHandler.handle(savedEventLog))
                 .thenReturn(uuid);
     }

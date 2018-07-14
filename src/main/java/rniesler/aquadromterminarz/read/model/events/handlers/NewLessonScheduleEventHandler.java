@@ -1,14 +1,14 @@
-package rniesler.aquadromterminarz.model.read.events.handlers;
+package rniesler.aquadromterminarz.read.model.events.handlers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import rniesler.aquadromterminarz.eventstorage.handlers.Event;
 import rniesler.aquadromterminarz.eventstorage.handlers.EventHandler;
-import rniesler.aquadromterminarz.model.read.LessonScheduleReadModel;
-import rniesler.aquadromterminarz.model.read.LessonScheduleReadModelRepository;
-import rniesler.aquadromterminarz.model.read.events.NewLessonScheduleEvent;
-import rniesler.aquadromterminarz.model.write.LessonSchedule;
+import rniesler.aquadromterminarz.read.model.LessonScheduleReadModel;
+import rniesler.aquadromterminarz.read.model.LessonScheduleReadModelRepository;
+import rniesler.aquadromterminarz.read.model.events.NewLessonScheduleEvent;
+import rniesler.aquadromterminarz.write.model.LessonSchedule;
 
 @Slf4j
 @Component
@@ -25,8 +25,10 @@ public class NewLessonScheduleEventHandler implements EventHandler {
             LessonSchedule modelFromEvent = ((NewLessonScheduleEvent) event).getModel();
             LessonScheduleReadModel readModel = LessonScheduleReadModel.builder()
                     .aggregateId(modelFromEvent.getAggregateId())
-                    .startDate(modelFromEvent.getStartDate())
-                    .endDate(modelFromEvent.getEndDate())
+                    .scheduleStart(modelFromEvent.getScheduleStart())
+                    .scheduleEnd(modelFromEvent.getScheduleEnd())
+                    .startTime(modelFromEvent.getStartTime())
+                    .duration(modelFromEvent.getDuration())
                     .repeatExpression(modelFromEvent.getRepeatExpression())
                     .student(modelFromEvent.getStudent())
                     .notes(modelFromEvent.getNotes())

@@ -1,4 +1,4 @@
-package rniesler.aquadromterminarz.model.write.commands;
+package rniesler.aquadromterminarz.write.model.commands;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

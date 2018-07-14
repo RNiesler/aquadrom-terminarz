@@ -8,10 +8,10 @@ import rniesler.aquadromterminarz.eventstorage.GeneralEventLogHandler;
 import rniesler.aquadromterminarz.eventstorage.handlers.CompositeEventHandler;
 import rniesler.aquadromterminarz.eventstorage.handlers.Event;
 import rniesler.aquadromterminarz.eventstorage.handlers.EventHandler;
-import rniesler.aquadromterminarz.model.read.LessonScheduleReadModelRepository;
-import rniesler.aquadromterminarz.model.read.events.NewLessonScheduleEvent;
-import rniesler.aquadromterminarz.model.read.events.handlers.CancelLessonScheduleEventHandler;
-import rniesler.aquadromterminarz.model.read.events.handlers.NewLessonScheduleEventHandler;
+import rniesler.aquadromterminarz.read.model.LessonScheduleReadModelRepository;
+import rniesler.aquadromterminarz.read.model.events.NewLessonScheduleEvent;
+import rniesler.aquadromterminarz.read.model.events.handlers.CancelLessonScheduleEventHandler;
+import rniesler.aquadromterminarz.read.model.events.handlers.NewLessonScheduleEventHandler;
 
 import java.util.HashMap;
 import java.util.List;

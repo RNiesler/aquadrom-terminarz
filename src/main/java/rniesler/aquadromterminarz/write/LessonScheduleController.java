@@ -1,14 +1,13 @@
-package rniesler.aquadromterminarz.controllers;
+package rniesler.aquadromterminarz.write;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
-import rniesler.aquadromterminarz.model.write.LessonSchedule;
-import rniesler.aquadromterminarz.model.write.LessonScheduleWriteService;
-import rniesler.aquadromterminarz.model.write.commands.CancelLessonScheduleCommand;
-import rniesler.aquadromterminarz.model.write.commands.NewLessonScheduleCommand;
+import rniesler.aquadromterminarz.write.model.LessonSchedule;
+import rniesler.aquadromterminarz.write.model.commands.CancelLessonScheduleCommand;
+import rniesler.aquadromterminarz.write.model.commands.NewLessonScheduleCommand;
 
 import java.util.UUID;
 
