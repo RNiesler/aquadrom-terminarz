@@ -1,4 +1,4 @@
-package rniesler.aquadromterminarz.read.model.events.handlers;
+package rniesler.aquadromterminarz.read.events.handlers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import rniesler.aquadromterminarz.eventstorage.handlers.Event;
 import rniesler.aquadromterminarz.eventstorage.handlers.EventHandler;
 import rniesler.aquadromterminarz.read.model.LessonScheduleReadModel;
 import rniesler.aquadromterminarz.read.model.LessonScheduleReadModelRepository;
-import rniesler.aquadromterminarz.read.model.events.NewLessonScheduleEvent;
+import rniesler.aquadromterminarz.read.events.NewLessonScheduleEvent;
 import rniesler.aquadromterminarz.write.model.LessonSchedule;
 
 @Slf4j
@@ -35,7 +35,7 @@ public class NewLessonScheduleEventHandler implements EventHandler {
                     .build();
             return repository.save(readModel).then();
         }
-        return Mono.error(new IllegalStateException()); //TODO exception
+        return Mono.error(new IllegalStateException("Cannot handle the event of type: "+event.getClass().getName()));
     }
 
     @Override

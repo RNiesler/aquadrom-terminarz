@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
 import rniesler.aquadromterminarz.write.model.LessonSchedule;
-import rniesler.aquadromterminarz.write.model.commands.CancelLessonScheduleCommand;
-import rniesler.aquadromterminarz.write.model.commands.NewLessonScheduleCommand;
+import rniesler.aquadromterminarz.write.commands.CancelLessonScheduleCommand;
+import rniesler.aquadromterminarz.write.commands.NewLessonScheduleCommand;
 
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/lesson")
+@RequestMapping("/lessons")
 public class LessonScheduleController {
     private final LessonScheduleWriteService lessonScheduleWriteService;
 
@@ -33,8 +33,8 @@ public class LessonScheduleController {
     }
 
     @DeleteMapping("/{uuid}")
-    public Mono<ResponseEntity<UUID>> cancelLessonSchedule(@PathVariable("uuid") UUID uuid, @RequestBody CancelLessonScheduleCommand command) {
-        command.setAggregateId(uuid);
+    public Mono<ResponseEntity<UUID>> cancelLessonSchedule(@PathVariable("uuid") UUID uuid, @RequestParam("version") long version) {
+        CancelLessonScheduleCommand command = new CancelLessonScheduleCommand(uuid, version);
         return lessonScheduleWriteService.handleCommand(command)
                 .map(ignore -> ResponseEntity.ok().build());
     }

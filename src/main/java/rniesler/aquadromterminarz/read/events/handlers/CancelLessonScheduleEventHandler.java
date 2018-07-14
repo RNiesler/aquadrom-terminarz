@@ -1,4 +1,4 @@
-package rniesler.aquadromterminarz.read.model.events.handlers;
+package rniesler.aquadromterminarz.read.events.handlers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 import rniesler.aquadromterminarz.eventstorage.handlers.Event;
 import rniesler.aquadromterminarz.eventstorage.handlers.EventHandler;
 import rniesler.aquadromterminarz.read.model.LessonScheduleReadModelRepository;
-import rniesler.aquadromterminarz.read.model.events.CancelLessonScheduleEvent;
+import rniesler.aquadromterminarz.read.events.CancelLessonScheduleEvent;
 
 @Slf4j
 @Component
@@ -20,10 +20,9 @@ public class CancelLessonScheduleEventHandler implements EventHandler {
     @Override
     public Mono<Void> handle(Event event) {
         if (event instanceof CancelLessonScheduleEvent) {
-            return repository.deleteById(((CancelLessonScheduleEvent) event).getAggregateId())
-                    .then();
+            return repository.deleteById(((CancelLessonScheduleEvent) event).getAggregateId());
         }
-        return Mono.empty();
+        return Mono.error(new IllegalStateException("Cannot handle the event of type: "+event.getClass().getName()));
     }
 
     @Override

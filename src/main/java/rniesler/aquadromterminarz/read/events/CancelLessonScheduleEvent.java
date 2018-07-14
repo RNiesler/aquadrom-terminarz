@@ -1,4 +1,4 @@
-package rniesler.aquadromterminarz.read.model.events;
+package rniesler.aquadromterminarz.read.events;
 
 import lombok.Getter;
 import rniesler.aquadromterminarz.eventstorage.EventLog;

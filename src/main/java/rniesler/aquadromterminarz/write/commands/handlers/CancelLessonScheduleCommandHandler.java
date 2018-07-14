@@ -1,12 +1,12 @@
-package rniesler.aquadromterminarz.write.model.commands.handlers;
+package rniesler.aquadromterminarz.write.commands.handlers;
 
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import rniesler.aquadromterminarz.commands.CommandHandler;
 import rniesler.aquadromterminarz.eventstorage.EventLog;
 import rniesler.aquadromterminarz.eventstorage.EventStore;
-import rniesler.aquadromterminarz.read.model.events.CancelLessonScheduleEvent;
-import rniesler.aquadromterminarz.write.model.commands.CancelLessonScheduleCommand;
+import rniesler.aquadromterminarz.read.events.CancelLessonScheduleEvent;
+import rniesler.aquadromterminarz.write.commands.CancelLessonScheduleCommand;
 
 import java.util.UUID;
 
@@ -14,11 +14,10 @@ import java.util.UUID;
 public class CancelLessonScheduleCommandHandler implements CommandHandler<CancelLessonScheduleCommand> {
     @Override
     public Mono<UUID> handle(EventStore eventStore, CancelLessonScheduleCommand command) {
-        //TODO verify the aggregate
         EventLog eventLog = EventLog.builder()
                 .aggregateId(command.getAggregateId())
                 .version(command.getVersion())
-                .eventType(CancelLessonScheduleEvent.class.getName()) //TODO don't depend on model model
+                .eventType(CancelLessonScheduleEvent.class.getName()) //dependency on read model
                 .build();
         return eventStore.saveEvent(eventLog)
                 .map(savedEventLog -> savedEventLog.getAggregateId());

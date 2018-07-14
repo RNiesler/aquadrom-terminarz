@@ -1,7 +1,8 @@
-package rniesler.aquadromterminarz.read.model.events;
+package rniesler.aquadromterminarz.read.events;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import rniesler.aquadromterminarz.eventstorage.CreateAggregateEvent;
 import rniesler.aquadromterminarz.eventstorage.EventLog;
@@ -9,6 +10,7 @@ import rniesler.aquadromterminarz.write.model.LessonSchedule;
 
 import java.io.IOException;
 
+@AllArgsConstructor
 public class NewLessonScheduleEvent implements CreateAggregateEvent {
     @Getter
     private LessonSchedule model;
@@ -23,4 +25,5 @@ public class NewLessonScheduleEvent implements CreateAggregateEvent {
         }
         this.model.setAggregateId(eventLog.getAggregateId());
     }
+
 }

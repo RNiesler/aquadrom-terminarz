@@ -1,4 +1,4 @@
-package rniesler.aquadromterminarz.write.model.commands;
+package rniesler.aquadromterminarz.write.commands;
 
 import rniesler.aquadromterminarz.commands.Command;
 import rniesler.aquadromterminarz.write.model.LessonSchedule;

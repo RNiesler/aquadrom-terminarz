@@ -1,10 +1,12 @@
-package rniesler.aquadromterminarz.write.model.commands;
+package rniesler.aquadromterminarz.write.commands;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.UUID;
 
+@Builder
 @AllArgsConstructor
 @Data
 public class CancelLessonScheduleCommand extends AbstractLessonScheduleCommand {
