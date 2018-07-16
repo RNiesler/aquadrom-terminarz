@@ -26,6 +26,6 @@ public class CompositeEventHandler implements EventHandler {
 
     @Override
     public boolean canHandle(Class<? extends Event> eventClass) {
-        return true;
+        return handlers.stream().anyMatch(handler -> handler.canHandle(eventClass));
     }
 }

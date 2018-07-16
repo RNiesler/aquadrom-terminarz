@@ -39,7 +39,7 @@ public class GeneralEventLogHandler implements EventLogHandler {
             }
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException
                 | InvocationTargetException | InstantiationException | IllegalStateException ex) {
-            throw new IllegalStateException("No event type mapping found for the event type: " + eventType); //TODO proper exception
+            throw new IllegalStateException("No event type mapping found for the event type: " + eventType);
         }
     }
 

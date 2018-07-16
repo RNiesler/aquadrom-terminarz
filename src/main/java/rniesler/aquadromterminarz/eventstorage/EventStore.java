@@ -16,7 +16,7 @@ import static org.springframework.data.mongodb.core.query.Query.query;
 
 @Service
 @Slf4j
-public class EventStore { //TODO make reactive
+public class EventStore {
     private final EventLogRepository eventLogRepository;
     private final EventLogHandler eventLogHandler;
     private final AggregateRepository aggregateRepository;
